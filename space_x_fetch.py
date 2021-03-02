@@ -1,5 +1,6 @@
 import os
 import requests
+from dotenv import load_dotenv
 
 
 def fetch_image_links_spacex_last_launch():
@@ -25,7 +26,8 @@ def download_images_spacex_last_launch(images_links):
 
 if __name__ == '__main__':
 
-    file_path = 'd:/CODING/DEVMAN/Space_Imgur/images'
+    load_dotenv()
+    file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
 
     images_links = fetch_image_links_spacex_last_launch()
