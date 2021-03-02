@@ -14,16 +14,13 @@ pip install -r requirements.txt
 
 ### How to use
 
-For the start using this project, you might download the pictures with the ```space_x_fetch.py``` and ```hubble_fetch.py```. Before using this scripts, you need to change directory in the variable ```file_path```, like in the example below:
-```python
-...
-
-if __name__ == '__main__':
-
-    file_path = 'd:/CODING/DEVMAN/Space_Imgur/images'
-    os.makedirs(file_path, exist_ok=True)
+For the start using this project, you might download the pictures with the ```space_x_fetch.py``` and ```hubble_fetch.py```. Before using this scripts, you need to change directory for the variables ```file_path``` and ```edited_images_path``` are defound, like in the example below:
+```
+IMAGES=d:/CODING/DEVMAN/Space_Imgur/images
+EDITED_IMAGES=d:/CODING/DEVMAN/Space_Imgur/edited_images
 ...
 ```
+So, that two strings, you have to add to ```.env``` file, which you must to create in your working directory.
 If you have already downloaded pictures or used ```space_x_fetch.py```and```hubble_fetch.py``` scripts, you could apply 
 ```imgur_image_post.py``` for uploading pictures to Imgur account.
 Befor start the ```imgur_image_post.py``` script you must register an application in accordance with API Imgur doc's by the next
