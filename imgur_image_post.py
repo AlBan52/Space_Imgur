@@ -53,13 +53,13 @@ def imgur_images_upload(client_id, client_secret, access_token, refresh_token):
 
 if __name__ == '__main__':
 
-    file_path = 'd:/CODING/DEVMAN/Space_Imgur/images'
-    edited_images_path = 'd:/CODING/DEVMAN/Space_Imgur/edited_images'
+    load_dotenv()
+    file_path = os.getenv('IMAGES')
+    edited_images_path = os.getenv('EDITED_IMAGES')
     os.makedirs(edited_images_path, exist_ok=True)
 
     edit_images(file_path, edited_images_path)
 
-    load_dotenv()
     client_id = os.getenv('CLIENT_ID')
     client_secret = os.getenv('CLIENT_SECRET')
     access_token = os.getenv('ACCESS_TOKEN')
