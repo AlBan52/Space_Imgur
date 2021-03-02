@@ -1,6 +1,7 @@
 import os
 import requests
 import urllib3
+from dotenv import load_dotenv
 
 
 urllib3.disable_warnings()
@@ -42,7 +43,8 @@ def download_hubble_images(file_path, image_link, image_id, image_exten):
 
 if __name__ == '__main__':
 
-    file_path = 'd:/CODING/DEVMAN/Space_Imgur/images'
+    load_dotenv()
+    file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
 
     images_id = get_hubble_images_id()
