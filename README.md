@@ -14,7 +14,7 @@ pip install -r requirements.txt
 
 ### How to use
 
-For the start using this project, you might download the pictures with the ```space_x_fetch.py``` and ```hubble_fetch.py```.run the Before using this scripts, you need to change directory in the variable ```file_path```, like in the example below:
+For the start using this project, you might download the pictures with the ```space_x_fetch.py``` and ```hubble_fetch.py```. Before using this scripts, you need to change directory in the variable ```file_path```, like in the example below:
 ```python
 ...
 
@@ -71,7 +71,7 @@ Downloading image: 3243.tif
 Downloading hubbles images is done
 ```
 The ```imgur_image_post.py``` script work start with authorization process. If you register your application above and got the tokens, you have to setup this data into ```.env``` file. In this case the authorization process begin without any messages to
-terminal. In anither case you'll see the authorization messages in console like example below:
+terminal. In another case you'll see the authorization messages in console like example below:
 ```
 Go to the following URL: https://api.imgur.com/oauth2/authorize?client_id=24uf2b4b&response_type=pin
 Enter pin code: 02071889cc
