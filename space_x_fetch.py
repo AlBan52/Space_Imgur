@@ -3,7 +3,7 @@ import requests
 from dotenv import load_dotenv
 
 
-def fetch_image_links_spacex_last_launch():
+def fetch_spacex_last_launch_image_links():
 
     get_url = 'https://api.spacexdata.com/v4/launches/latest'
     response = requests.get(get_url)
@@ -13,7 +13,7 @@ def fetch_image_links_spacex_last_launch():
     return images_links
 
 
-def download_images_spacex_last_launch(images_links):
+def download_spacex_last_launch_images(images_links):
 
     for image_number, image_link in enumerate(images_links):
         response = requests.get(image_link)
@@ -30,5 +30,5 @@ if __name__ == '__main__':
     file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
 
-    images_links = fetch_image_links_spacex_last_launch()
-    download_images_spacex_last_launch(images_links)
+    images_links = fetch_spacex_last_launch_image_links()
+    download_spacex_last_launch_images(images_links)
