@@ -14,9 +14,7 @@ def get_hubble_images_id():
         'http://hubblesite.org/api/v3/images', params=payload)
     response.raise_for_status()
     image_files_descriptions = response.json()
-    images_id = []
-    for image in image_files_descriptions:
-        images_id.append(image['id'])
+    images_id = [image['id'] for image in image_files_descriptions]
 
     return images_id
 
