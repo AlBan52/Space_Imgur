@@ -13,7 +13,7 @@ def fetch_spacex_last_launch_image_links():
     return images_links
 
 
-def download_spacex_last_launch_images(images_links):
+def download_spacex_last_launch_images(images_links, file_path):
 
     for image_number, image_link in enumerate(images_links):
         response = requests.get(image_link)
@@ -31,4 +31,4 @@ if __name__ == '__main__':
     os.makedirs(file_path, exist_ok=True)
 
     images_links = fetch_spacex_last_launch_image_links()
-    download_spacex_last_launch_images(images_links)
+    download_spacex_last_launch_images(images_links, file_path)
