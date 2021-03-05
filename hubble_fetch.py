@@ -4,9 +4,6 @@ import urllib3
 from dotenv import load_dotenv
 
 
-urllib3.disable_warnings()
-
-
 def get_hubble_images_ids():
 
     payload = {'page': 'all', 'collection_name': 'spacecraft'}
@@ -41,6 +38,7 @@ def download_hubble_images(file_path, image_link, image_id, image_exten):
 
 if __name__ == '__main__':
 
+    urllib3.disable_warnings()
     load_dotenv()
     file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
