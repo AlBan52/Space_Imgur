@@ -1,7 +1,9 @@
 import os
 import requests
 import urllib3
+import logging
 from dotenv import load_dotenv
+from urllib.parse import urlparse
 
 
 def get_hubble_images_ids():
@@ -27,26 +29,30 @@ def download_hubble_images_link(image_id):
     return image_link
 
 
-def download_hubble_images(file_path, image_link, image_id, image_exten):
+def download_hubble_images(file_path, image_link, image_id, image_ext):
 
     response = requests.get(f'http:{image_link}', verify=False)
     response.raise_for_status()
-    with open(f'{file_path}/{image_id}{image_exten}', 'wb') as file:
+    with open(f'{file_path}/{image_id}{image_ext}', 'wb') as file:
         file.write(response.content)
-        print(f'Downloading image: {image_id}{image_exten}')
+        logging.info(f'Downloading image: {image_id}{image_ext}')
 
 
 if __name__ == '__main__':
 
+    logging.basicConfig(filename='hubble_fetch.log',
+                        filemode='w', level=logging.INFO)
     urllib3.disable_warnings()
     load_dotenv()
     file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
 
     images_ids = get_hubble_images_ids()
-    print('Downloading hubbles images start...')
+    logging.info('Downloading hubbles images start...')
     for image_id in images_ids:
         image_link = download_hubble_images_link(image_id)
-        name_link, image_exten = os.path.splitext(image_link)
-        download_hubble_images(file_path, image_link, image_id, image_exten)
-    print('Downloading hubbles images is done')
+        image_link_parse = urlparse(image_link)
+        image_path = image_link_parse.path
+        _, image_ext = os.path.splitext(image_path)
+        download_hubble_images(file_path, image_link, image_id, image_ext)
+    logging.info('Downloading hubbles images is done')
