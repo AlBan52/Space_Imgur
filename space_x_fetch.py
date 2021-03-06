@@ -1,5 +1,6 @@
 import os
 import requests
+import logging
 from dotenv import load_dotenv
 
 
@@ -20,12 +21,15 @@ def download_spacex_last_launch_images(images_links, file_path):
         response.raise_for_status()
         with open(f'{file_path}/spacex_{image_number}.jpg', 'wb') as file:
             file.write(response.content)
-        print(f'Downloading spase-X images: spacex_{image_number}.jpg')
-    print('Downloading spase-X images is done')
+            print(
+                f'Downloading spase-X images: spacex_{image_number}.jpg')
+    logging.info('Downloading spase-X images is done')
 
 
 if __name__ == '__main__':
 
+    logging.basicConfig(filename='space_x_fetch.log',
+                        filemode='w', level=logging.INFO)
     load_dotenv()
     file_path = os.getenv('IMAGES')
     os.makedirs(file_path, exist_ok=True)
