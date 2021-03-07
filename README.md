@@ -50,22 +50,20 @@ The scripts described above run the same
 
 ### Output results
 
-When you run the ```space_x_fetch.py``` script, you'll see in terminal messages like this:
+When you run the ```space_x_fetch.py``` script, you'll see in the .log file messages like this:
 ```
-d:\CODING\DEVMAN\Space Imgur>python space_x_fetch.py
-Downloading spase-X images: spacex_0.jpg
-Downloading spase-X images: spacex_1.jpg
-Downloading spase-X images: spacex_2.jpg
-Downloading spase-X images is done
+INFO:root:Downloading spase-X images: spacex_0.jpg
+INFO:root:Downloading spase-X images: spacex_1.jpg
+INFO:root:Downloading spase-X images: spacex_2.jpg
+INFO:root:Downloading spase-X images is done
 ```
-When you run the ```hubble_fetch.py``` script, you'll see in terminal messages like this:
+When you run the ```hubble_fetch.py``` script, you'll see in the .log file messages like this:
 ```
-d:\CODING\DEVMAN\Space Imgur>python hubble_fetch.py
-Downloading hubbles images start...
-Downloading image: 3241.jpg
-Downloading image: 3242.png
-Downloading image: 3243.tif
-Downloading hubbles images is done
+INFO:root:Downloading hubbles images start...
+INFO:root:Downloading image: 3241.jpg
+INFO:root:Downloading image: 3242.png
+INFO:root:Downloading image: 3243.tif
+INFO:root:Downloading hubbles images is done
 ```
 The ```imgur_image_post.py``` script work start with authorization process. If you register your application above and got the tokens, you have to setup this data into ```.env``` file. In this case the authorization process begin without any messages to
 terminal. In another case you'll see the authorization messages in console like example below:
@@ -76,20 +74,21 @@ Authentication successful! Here are the details:
    Access token:  13f0n23fn230fn2309fn023fn0vn42184e94d091
    Refresh token: 1mc3894c98q4q9mc8m49ghcwogho34chmg348cgm
 ```
-After authorization process the editing images will start. You'll see:
+Also, authorization info was saved in the .log file.
+After authorization process the editing images will start. You'll see in .log file:
 ```
-Editing images: 0.jpg
-Editing images: 1.jpg
-Editing images: 2.jpg
-Editing images is done
+INFO:root:Editing images: 0.jpg
+INFO:root:Editing images: 1.jpg
+INFO:root:Editing images: 2.jpg
+INFO:root:Editing images is done
 ```
-The final process is uploading pictures. You'll see:
+The final process is uploading pictures. You'll see in the .log file:
 ```
-Uploading image...
-Upload: 0
-Upload: 1
-Upload: 2
-Uploading images is done
+INFO:root:Uploading image...
+INFO:root:Upload: 0
+INFO:root:Upload: 1
+INFO:root:Upload: 2
+INFO:root:Uploading images is done
 ```
 
 ### Project Goals
