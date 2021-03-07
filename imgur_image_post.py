@@ -13,7 +13,7 @@ def edit_images(file_path, edited_images_path):
     for image_number, image in enumerate(images):
         image = Image.open(f'{file_path}/{image}')
         image.thumbnail((1080, 1080))
-        image.save(f'{edited_images_path}/{image_number}.jpg', format="JPEG")
+        image.save(f'{edited_images_path}/{image_number}.jpg', format='JPEG')
         logging.info(f'Editing images: {image_number}.jpg')
     logging.info('Editing images is done')
 
@@ -22,24 +22,33 @@ def get_imgur_tokens(client_id, client_secret):
 
     client = ImgurClient(client_id, client_secret)
     authorization_url = client.get_auth_url('pin')
-    logging.info('Go to the following URL: {0}'.format(authorization_url))
+    print('Go to the following URL: {0}'.format(authorization_url))
     pin = input('Enter pin code: ')
 
     credentials = client.authorize(pin, 'pin')
     client.set_user_auth(
         credentials['access_token'], credentials['refresh_token'])
 
-    logging.info("Authentication successful! Here are the details:")
-    logging.info("   Access token:  {0}".format(credentials['access_token']))
-    logging.info("   Refresh token: {0}".format(credentials['refresh_token']))
+    print('Authentication successful! Check details in the .log file')
+    logging.info('Authentication successful! Here are the details:')
+    logging.info(' Access token:  {0}'.format(credentials['access_token']))
+    logging.info(' Refresh token: {0}'.format(credentials['refresh_token']))
     tokens = [credentials['access_token'], credentials['refresh_token']]
 
     return tokens
 
 
-def imgur_images_upload(client_id, client_secret, access_token, refresh_token):
+def imgur_images_upload(client_id,
+                        client_secret,
+                        access_token,
+                        refresh_token
+                        ):
 
-    client = ImgurClient(client_id, client_secret, access_token, refresh_token)
+    client = ImgurClient(client_id,
+                         client_secret,
+                         access_token,
+                         refresh_token
+                         )
     logging.info("Uploading image... ")
     upload_images = os.listdir(edited_images_path)
     for image_number, image in enumerate(upload_images):
