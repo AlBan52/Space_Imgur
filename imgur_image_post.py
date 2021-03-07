@@ -68,4 +68,8 @@ if __name__ == '__main__':
     else:
         refresh_token = os.getenv('REFRESH_TOKEN')
 
-    imgur_images_upload(client_id, client_secret, access_token, refresh_token)
+    imgur_images_upload(client_id,
+                        client_secret,
+                        access_token,
+                        refresh_token
+                        )
