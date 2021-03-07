@@ -6,9 +6,6 @@ from dotenv import load_dotenv
 from imgurpython import ImgurClient
 
 
-urllib3.disable_warnings()
-
-
 def edit_images(file_path, edited_images_path):
 
     images = os.listdir(file_path)
@@ -53,6 +50,7 @@ def imgur_images_upload(client_id, client_secret, access_token, refresh_token):
 
 if __name__ == '__main__':
 
+    urllib3.disable_warnings()
     load_dotenv()
     file_path = os.getenv('IMAGES')
     edited_images_path = os.getenv('EDITED_IMAGES')
