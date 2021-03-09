@@ -9,10 +9,11 @@ from imgurpython import ImgurClient
 
 def edit_images(file_path, edited_images_path):
 
+    max_pic_size = 1080
     images = os.listdir(file_path)
     for image_number, image in enumerate(images):
         image = Image.open(f'{file_path}/{image}')
-        image.thumbnail((1080, 1080))
+        image.thumbnail(max_pic_size, max_pic_size)
         image.save(f'{edited_images_path}/{image_number}.jpg', format='JPEG')
         logging.info(f'Editing images: {image_number}.jpg')
     logging.info('Editing images is done')
