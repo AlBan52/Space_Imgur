@@ -18,7 +18,7 @@ def get_hubble_images_ids():
     return images_ids
 
 
-def download_hubble_images_link(image_id):
+def download_hubble_image_link(image_id):
 
     get_url = f'http://hubblesite.org/api/v3/image/{image_id}'
     response = requests.get(get_url)
