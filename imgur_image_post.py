@@ -74,9 +74,10 @@ if __name__ == '__main__':
     client_secret = os.getenv('CLIENT_SECRET')
     access_token = os.getenv('ACCESS_TOKEN')
 
-    if access_token == None:
-        access_token, refresh_token = get_imgur_tokens(
-            client_id, client_secret)
+    if not access_token:
+        access_token, refresh_token = get_imgur_tokens(client_id,
+                                                       client_secret
+                                                       )
     else:
         refresh_token = os.getenv('REFRESH_TOKEN')
 
