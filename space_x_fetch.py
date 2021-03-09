@@ -1,6 +1,8 @@
 import os
-import requests
 import logging
+
+import requests
+
 from dotenv import load_dotenv
 
 
