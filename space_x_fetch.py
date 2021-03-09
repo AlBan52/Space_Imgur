@@ -21,7 +21,7 @@ def download_spacex_last_launch_images(images_links, file_path):
         response.raise_for_status()
         with open(f'{file_path}/spacex_{image_number}.jpg', 'wb') as file:
             file.write(response.content)
-            print(
+            logging.info(
                 f'Downloading spase-X images: spacex_{image_number}.jpg')
     logging.info('Downloading spase-X images is done')
 
