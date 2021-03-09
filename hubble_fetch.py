@@ -50,7 +50,7 @@ if __name__ == '__main__':
     images_ids = get_hubble_images_ids()
     logging.info('Downloading hubbles images start...')
     for image_id in images_ids:
-        image_link = download_hubble_images_link(image_id)
+        image_link = download_hubble_image_link(image_id)
         image_link_parse = urlparse(image_link)
         image_path = image_link_parse.path
         _, image_ext = os.path.splitext(image_path)
