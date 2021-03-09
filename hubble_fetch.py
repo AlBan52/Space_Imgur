@@ -1,7 +1,9 @@
 import os
-import requests
-import urllib3
 import logging
+import urllib3
+
+import requests
+
 from dotenv import load_dotenv
 from urllib.parse import urlparse
 
