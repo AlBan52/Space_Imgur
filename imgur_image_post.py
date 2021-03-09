@@ -1,10 +1,12 @@
 import os
-import requests
-import urllib3
 import logging
-from PIL import Image
+import urllib3
+
+import requests
+
 from dotenv import load_dotenv
 from imgurpython import ImgurClient
+from PIL import Image
 
 
 def edit_images(file_path, edited_images_path):
