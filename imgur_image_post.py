@@ -33,9 +33,8 @@ def get_imgur_tokens(client_id, client_secret):
     logging.info('Authentication successful! Here are the details:')
     logging.info(' Access token:  {0}'.format(credentials['access_token']))
     logging.info(' Refresh token: {0}'.format(credentials['refresh_token']))
-    tokens = [credentials['access_token'], credentials['refresh_token']]
 
-    return tokens
+    return credentials['access_token'], credentials['refresh_token']
 
 
 def upload_images_to_imgur(client_id,
