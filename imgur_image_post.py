@@ -1,7 +1,7 @@
 import os
 import logging
-import urllib3
 
+import urllib3
 import requests
 
 from dotenv import load_dotenv
